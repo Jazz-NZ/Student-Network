@@ -3,18 +3,19 @@ package com.studentnetwork.Student.Network;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class HomeResource {
 
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String home(){
-        return("<h1>Welcome<h1>");
+        return "index.html";
     }
 
-    @RequestMapping("/user")
+    @RequestMapping(value = "/user", method = RequestMethod.GET, produces = {"application/json"})
     public String user(){
         return "user.html";
     }
