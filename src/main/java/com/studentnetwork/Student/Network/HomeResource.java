@@ -1,27 +1,44 @@
 package com.studentnetwork.Student.Network;
 
+import com.studentnetwork.Student.Network.rest.Group;
+import com.studentnetwork.Student.Network.rest.RestService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
 public class HomeResource {
 
 
+    @Autowired
+    private RestService restService;
+
+
+    public HomeResource(){
+
+    }
+
     @RequestMapping("/")
     public String home(){
-        return "index.html";
+        return "index";
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET, produces = {"application/json"})
     public String user(Model model){
 
 
-        model.addAttribute("something", "govnooo");
+        String ispis = "default";
+      //  ispis= getJsonAsObject()[0].getSubject(); // pravi problem ako nije ukljucen rest api
+        ispis = restService.getJsonAsString();
+        System.out.println(ispis);
+        model.addAttribute("something", ispis);
 
-        return "user.html";
+        return "user";
     }
 
 
