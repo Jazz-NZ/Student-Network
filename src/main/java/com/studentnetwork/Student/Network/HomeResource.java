@@ -1,10 +1,10 @@
 package com.studentnetwork.Student.Network;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class HomeResource {
@@ -16,7 +16,11 @@ public class HomeResource {
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET, produces = {"application/json"})
-    public String user(){
+    public String user(Model model){
+
+
+        model.addAttribute("something", "govnooo");
+
         return "user.html";
     }
 
