@@ -44,4 +44,13 @@ public class Group {
     public void setUniversity(String university) {
         this.university = university;
     }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "subject='" + subject + '\'' +
+                ", faculty='" + faculty + '\'' +
+                ", university='" + university + '\'' +
+                '}';
+    }
 }

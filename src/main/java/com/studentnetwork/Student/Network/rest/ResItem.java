@@ -1,11 +1,8 @@
 package com.studentnetwork.Student.Network.rest;
 
-import com.studentnetwork.Student.Network.rest.Group;
-
-import java.io.Serializable;
 import java.util.List;
 
-public class ResItem implements Serializable {
+public class ResItem {
 
     private String name;
     private String surname;

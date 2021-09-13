@@ -14,10 +14,10 @@ public class RestService {
     }
 
 
-    public Group[] getJsonAsObject() {
+    public ResItem[] getJsonAsObject() {
         String url = "http://localhost:8083/groups";
         System.out.println();
-        return this.restTemplate.getForObject(url, Group[].class);
+        return this.restTemplate.getForObject(url, ResItem[].class);
     }
 
     public String getJsonAsString(){
