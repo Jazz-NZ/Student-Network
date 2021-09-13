@@ -75,6 +75,8 @@
 
 <header>
     <h2>Student Network</h2>
+    <div th:text="${name}"/>
+
 </header>
 
 <section>
@@ -90,6 +92,13 @@
         <h1>London</h1>
         <p>Ovde bi trebalo da se ocitavaju podaci sa feeda</p>
         <p><h3 th:text="${something}"/></p>
+        <tr th:if="${groups.empty}">
+            <td colspan="2"> Nothing new found </td>
+        </tr>
+        <tr th:each="group : ${groups}">
+            <td><span th:text="${group.subject}"> Title </span></td>
+            <td><span th:text="${group.faculty}"> Author </span></td>
+        </tr>
     </article>
 </section>
 
