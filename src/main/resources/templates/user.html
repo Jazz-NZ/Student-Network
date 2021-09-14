@@ -96,8 +96,9 @@
             <td colspan="2"> Nothing new found </td>
         </tr>
         <tr th:each="group : ${groups}">
-            <td><span th:text="${group.subject}"> Title </span></td>
-            <td><span th:text="${group.faculty}"> Author </span></td>
+            <td><span th:text="${group.groupId}"> ID </span></td>
+            <td><span th:text="${group.groupName}"> ID </span></td>
+
         </tr>
     </article>
 </section>

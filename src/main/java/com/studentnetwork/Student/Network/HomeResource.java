@@ -40,11 +40,16 @@ public class HomeResource {
 
         String ispis = "default";
 
-        model.addAttribute("groups", items[0].getGroups());
+        //model.addAttribute("groups", items[0].getGroups());
 
 
-        model.addAttribute("name",items[0].getName());
-        model.addAttribute("something", items[0].getSurname());
+        //model.addAttribute("name",items[0].getName());
+        //model.addAttribute("something", items[0].getSurname());
+
+        model.addAttribute("groups",items[0].getGroups());
+        model.addAttribute("name",items[0].getSurname());
+
+        model.addAttribute("something",items[0].getSurname());
 
 
         return "user";

@@ -1,56 +1,40 @@
 package com.studentnetwork.Student.Network.rest;
 
+import java.util.List;
+
 public class Group {
 
+    private int groupId;
+    private String groupName;
+    private List<Post> groupPosts;
 
-    private String subject;
-    private String faculty;
-    private String university;
-
-    public Group(){
-
-    }
-    public Group(String subject, String faculty, String university) {
-
-        this.subject = subject;
-        this.faculty = faculty;
-        this.university = university;
+    public String getGroupName() {
+        return groupName;
     }
 
-
-
-
-
-    public String getSubject() {
-        return subject;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public List<Post> getGroupPosts() {
+        return groupPosts;
     }
 
-    public String getFaculty() {
-        return faculty;
+    public void setGroupPosts(List<Post> groupPosts) {
+        this.groupPosts = groupPosts;
     }
 
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
+    public int getGroupId() {
+        return groupId;
     }
 
-    public String getUniversity() {
-        return university;
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 
-    public void setUniversity(String university) {
-        this.university = university;
-    }
-
-    @Override
-    public String toString() {
-        return "Group{" +
-                "subject='" + subject + '\'' +
-                ", faculty='" + faculty + '\'' +
-                ", university='" + university + '\'' +
-                '}';
+    public Group(int groupId, String groupName, List<Post> groupPosts) {
+        this.groupId = groupId;
+        this.groupName = groupName;
+        this.groupPosts = groupPosts;
     }
 }
