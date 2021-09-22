@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -30,9 +31,8 @@ public class HomeResource {
         return "index";
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET, produces = {"application/json"})
-    public String user(Model model){
-
+    @RequestMapping(value = "/user", produces = {"application/json"})
+    public String user(@ModelAttribute UserInput userInput, Model model){
 
 
 
@@ -40,6 +40,8 @@ public class HomeResource {
 
         String ispis = "default";
 
+
+       // model.addAttribute("UserInput", new UserInput());
         //model.addAttribute("groups", items[0].getGroups());
 
 
@@ -51,9 +53,13 @@ public class HomeResource {
 
         model.addAttribute("something",items[0].getSurname());
 
+        model.addAttribute("UserInput", userInput);
+
+        System.out.println(userInput.getPostText());
 
         return "user";
     }
+
 
 
     @GetMapping("/admin")
