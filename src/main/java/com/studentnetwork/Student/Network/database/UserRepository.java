@@ -1,4 +1,4 @@
-package com.studentnetwork.Student.Network;
+package com.studentnetwork.Student.Network.database;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.studentnetwork.Student.Network;
+package com.studentnetwork.Student.Network.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

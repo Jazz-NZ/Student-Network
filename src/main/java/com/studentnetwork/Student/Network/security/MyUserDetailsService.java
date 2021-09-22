@@ -1,5 +1,7 @@
-package com.studentnetwork.Student.Network;
+package com.studentnetwork.Student.Network.security;
 
+import com.studentnetwork.Student.Network.database.User;
+import com.studentnetwork.Student.Network.database.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

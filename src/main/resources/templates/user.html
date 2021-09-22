@@ -32,6 +32,7 @@
         <textarea name="Text1" th:field="*{postText}" placeholder="string" cols="40" rows="5"></textarea>
         <input type="submit" value="Submit">
         </form>
+
         <tr th:if="${groups.empty}">
             <td colspan="2"> Nothing new found </td>
         </tr>

@@ -1,7 +1,8 @@
 package com.studentnetwork.Student.Network;
 
-import com.google.gson.Gson;
-import com.studentnetwork.Student.Network.rest.Group;
+
+import com.studentnetwork.Student.Network.database.Post;
+import com.studentnetwork.Student.Network.database.PostRepository;
 import com.studentnetwork.Student.Network.rest.ResItem;
 import com.studentnetwork.Student.Network.rest.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 
 
 @Controller
@@ -20,6 +21,9 @@ public class HomeResource {
 
     @Autowired
     private RestService restService;
+
+    @Autowired
+    private PostRepository postRepository;
 
 
     public HomeResource(){
@@ -31,22 +35,12 @@ public class HomeResource {
         return "index";
     }
 
-    @RequestMapping(value = "/user", produces = {"application/json"})
+    @RequestMapping(value = "/user",produces = {"application/json"})
     public String user(@ModelAttribute UserInput userInput, Model model){
 
 
 
         ResItem[] items = restService.getJsonAsObject();
-
-        String ispis = "default";
-
-
-       // model.addAttribute("UserInput", new UserInput());
-        //model.addAttribute("groups", items[0].getGroups());
-
-
-        //model.addAttribute("name",items[0].getName());
-        //model.addAttribute("something", items[0].getSurname());
 
         model.addAttribute("groups",items[0].getGroups());
         model.addAttribute("name",items[0].getSurname());
@@ -56,6 +50,11 @@ public class HomeResource {
         model.addAttribute("UserInput", userInput);
 
         System.out.println(userInput.getPostText());
+
+        Post post = new Post();
+        post.setText(userInput.getPostText());
+        post.setUserId(1);
+        postRepository.save(post).getIdPost();
 
         return "user";
     }

@@ -1,5 +1,6 @@
-package com.studentnetwork.Student.Network;
+package com.studentnetwork.Student.Network.security;
 
+import com.studentnetwork.Student.Network.database.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
