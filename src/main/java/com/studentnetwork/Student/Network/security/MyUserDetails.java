@@ -1,5 +1,6 @@
 package com.studentnetwork.Student.Network.security;
 
+import com.studentnetwork.Student.Network.HomeResource;
 import com.studentnetwork.Student.Network.database.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,6 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 public class MyUserDetails implements UserDetails {
 
@@ -23,6 +25,8 @@ public class MyUserDetails implements UserDetails {
         this.password = user.getPassword();
         this.active = user.isActive();
         this.authorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        HomeResource.username = userName;
+        HomeResource.userId = user.getId();
 
     }
 

@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -25,6 +22,8 @@ public class HomeResource {
     @Autowired
     private PostRepository postRepository;
 
+    public static String username;
+    public static int userId;
 
     public HomeResource(){
 
@@ -35,8 +34,8 @@ public class HomeResource {
         return "index";
     }
 
-    @RequestMapping(value = "/user",produces = {"application/json"})
-    public String user(@ModelAttribute UserInput userInput, Model model){
+    @RequestMapping(value = "/user",method = RequestMethod.GET,produces = {"application/json"})
+    public String user(Model model){
 
 
 
@@ -47,19 +46,39 @@ public class HomeResource {
 
         model.addAttribute("something",items[0].getSurname());
 
-        model.addAttribute("UserInput", userInput);
+        model.addAttribute("UserInput", new UserInput());
 
-        System.out.println(userInput.getPostText());
+    //    System.out.println(userInput.getPostText());
 
-        Post post = new Post();
-        post.setText(userInput.getPostText());
-        post.setUserId(1);
-        postRepository.save(post).getIdPost();
+
+
+        System.out.println("Your username is "+username);
 
         return "user";
     }
 
 
+    @PostMapping("/user")
+    public String greetingSubmit(@ModelAttribute UserInput userInput, Model model) {
+
+        model.addAttribute("UserInput", userInput);
+        ResItem[] items = restService.getJsonAsObject();
+
+        model.addAttribute("groups",items[0].getGroups());
+        model.addAttribute("name",items[0].getSurname());
+
+        model.addAttribute("something",items[0].getSurname());
+
+
+        Post post = new Post();
+
+
+
+        post.setText(userInput.getPostText());
+        post.setUserId(userId);
+        postRepository.save(post).getIdPost();
+        return "user";
+    }
 
     @GetMapping("/admin")
     public String admin(){
