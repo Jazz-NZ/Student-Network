@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 @Controller
@@ -59,7 +60,7 @@ public class HomeResource {
 
 
     @PostMapping("/user")
-    public String greetingSubmit(@ModelAttribute UserInput userInput, Model model) {
+    public RedirectView greetingSubmit(@ModelAttribute UserInput userInput, Model model) {
 
         model.addAttribute("UserInput", userInput);
         ResItem[] items = restService.getJsonAsObject();
@@ -77,7 +78,8 @@ public class HomeResource {
         post.setText(userInput.getPostText());
         post.setUserId(userId);
         postRepository.save(post).getIdPost();
-        return "user";
+
+        return new RedirectView("/user",true);
     }
 
     @GetMapping("/admin")
