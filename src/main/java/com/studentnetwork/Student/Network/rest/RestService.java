@@ -14,9 +14,9 @@ public class RestService {
     }
 
 
-    public ResItem[] getJsonAsObject() {
-        String url = "http://localhost:8083/groups";
-        System.out.println();
+    public ResItem[] getJsonAsObject(int userId) {
+
+        String url = "http://localhost:8083/"+ userId;
         return this.restTemplate.getForObject(url, ResItem[].class);
     }
 

@@ -4,7 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface PostRepository extends JpaRepository<PostDB,Integer> {
+public interface GroupRepository extends JpaRepository<GroupDB,Integer> {
 
-    Optional<PostDB> findByIdPost(int idPost);
+
+    Optional<GroupDB> findByGroupDbId(int groupId);
 }
