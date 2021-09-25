@@ -1,10 +1,7 @@
 package com.studentnetwork.Student.Network;
 
 
-import com.studentnetwork.Student.Network.database.GroupDB;
-import com.studentnetwork.Student.Network.database.GroupRepository;
-import com.studentnetwork.Student.Network.database.PostDB;
-import com.studentnetwork.Student.Network.database.PostRepository;
+import com.studentnetwork.Student.Network.database.*;
 import com.studentnetwork.Student.Network.rest.ResItem;
 import com.studentnetwork.Student.Network.rest.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 
@@ -29,6 +27,9 @@ public class HomeResource {
 
     @Autowired
     private GroupRepository groupRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public static String username;
     public static int userId;
@@ -47,12 +48,14 @@ public class HomeResource {
 
 
 
-        ResItem[] items = restService.getJsonAsObject(userId);
+        PostDB[] items = restService.getJsonAsObject(userId);
 
-        model.addAttribute("groups",items[0].getGroups());
-        model.addAttribute("name",items[0].getSurname());
+        System.out.println(items[0].getText());
 
-        model.addAttribute("something",items[0].getSurname());
+        //model.addAttribute("groups",items[0].getUserId());
+        model.addAttribute("name",items[0].getText());
+
+        model.addAttribute("something",items[0].getText());
 
         model.addAttribute("UserInput", new UserInput());
 
@@ -63,6 +66,7 @@ public class HomeResource {
         group.setGroupName("FON");
        groupRepository.save(group);
 */
+       // System.out.println( userRepository.findByUserName(username).get().getRoles());
         System.out.println("Your username is "+username);
 
         return "user";
@@ -74,12 +78,13 @@ public class HomeResource {
 
         model.addAttribute("UserInput", userInput);
         //getting a response from groups service
-        ResItem[] items = restService.getJsonAsObject(userId);
+        PostDB[] items = restService.getJsonAsObject(userId);
 
-        model.addAttribute("groups",items[0].getGroups());
-        model.addAttribute("name",items[0].getSurname());
+       // model.addAttribute("groups",items[0].getUserId());
+        model.addAttribute("name",items[0].getText());
 
-        model.addAttribute("something",items[0].getSurname());
+        model.addAttribute("something",items[0].getText());
+
 
 
         PostDB post = new PostDB();

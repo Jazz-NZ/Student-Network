@@ -15,6 +15,15 @@ public class User {
     private String password;
     private boolean active;
     private String roles;
+    private String groups;
+
+    public String getGroups() {
+        return groups;
+    }
+
+    public void setGroups(String groups) {
+        this.groups = groups;
+    }
 
     public int getId() {
         return id;

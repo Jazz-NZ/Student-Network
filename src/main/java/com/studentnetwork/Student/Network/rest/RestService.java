@@ -1,5 +1,6 @@
 package com.studentnetwork.Student.Network.rest;
 
+import com.studentnetwork.Student.Network.database.PostDB;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,10 +15,10 @@ public class RestService {
     }
 
 
-    public ResItem[] getJsonAsObject(int userId) {
+    public PostDB[] getJsonAsObject(int userId) {
 
         String url = "http://localhost:8083/"+ userId;
-        return this.restTemplate.getForObject(url, ResItem[].class);
+        return this.restTemplate.getForObject(url, PostDB[].class);
     }
 
     public String getJsonAsString(){

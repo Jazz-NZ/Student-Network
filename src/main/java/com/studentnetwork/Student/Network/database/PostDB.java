@@ -12,6 +12,15 @@ public class PostDB {
     private int idPost;
     private int userId;
     private String text;
+    private int groupId;
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
 
     public int getIdPost() {
         return idPost;
