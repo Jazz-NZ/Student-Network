@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+        <table>
+
+          <tr id = "tablePart" th:each="group : ${groups}">
+            <div >
+              <td ><span th:text="${group.getGroupName()}"> GroupID </span></td>
+
+              <td id="postDisplay"><span th:text="${group.getGroupDbId()}"> Text </span></td>
+            </div>
+
+          </tr>
+        </table>
+
+Rezultati pretrage
+
+</body>
+</html>

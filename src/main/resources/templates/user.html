@@ -7,13 +7,25 @@
     <meta charset="UTF-8">
     <title>USER</title>
     <link rel="stylesheet" href="user_style.css">
+
+
+
 </head>
 
 <body>
 
 <header>
+
+
     <h2>Student Network</h2>
     <div th:text="${name}"/>
+
+    <form action="#" th:action="@{/results}" th:object="${Search}" method="post">
+        <textarea name="Text1" th:field="*{searchInput}" placeholder="Search" cols="20" rows="1"></textarea>
+        <br>
+        <input type="submit" value="Search">
+    </form>
+
 
 </header>
 
@@ -29,21 +41,21 @@
     <article>
 
         <form action="#" th:action="@{/user}" th:object="${UserInput}" method="post">
-        <textarea name="Text1" th:field="*{postText}" placeholder="string" cols="40" rows="5"></textarea>
+        <textarea name="Text1" th:field="*{postText}" placeholder="New post" cols="40" rows="5"></textarea>
+            <br>
         <input type="submit" value="Submit">
         </form>
 
-        <!--<tr th:if="${groups.empty}">
-            <td colspan="2"> Nothing new found </td>
-        </tr>
-        <tr th:each="group : ${groups}">
-            <div>
-            <td><span th:text="${group.getGroupId()}"> ID </span></td>
+        <table>
+            <tr id = "tablePart" th:each="post : ${posts}">
+                <div >
+                <td ><span th:text="${post.getGroupId()}"> GroupID </span></td>
 
-            <td><span th:text="${group.groupName}"> ID </span></td>
-            </div>
+                <td id="postDisplay"><span th:text="${post.getText()}"> Text </span></td>
+                </div>
 
-        </tr>-->
+            </tr>
+        </table>
     </article>
 </section>
 

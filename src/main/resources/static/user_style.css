@@ -60,6 +60,29 @@ footer {
     width: 500px;
 
 }
+table {
+
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid purple;
+
+}
+
+#postDisplay{
+
+    border: black;
+}
+
+#tablePart{
+
+    min-height: 100px;
+}
+
+td{
+    border-bottom: black;
+    background: aqua;
+
+}
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
