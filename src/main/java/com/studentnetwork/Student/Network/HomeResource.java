@@ -2,41 +2,35 @@ package com.studentnetwork.Student.Network;
 
 
 import com.studentnetwork.Student.Network.database.*;
-import com.studentnetwork.Student.Network.rest.ResItem;
+
 import com.studentnetwork.Student.Network.rest.RestService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.Arrays;
-import java.util.Optional;
 
 
 @Controller
 public class HomeResource {
 
 
-    @Autowired
-    private RestService restService;
+    private final RestService restService;
 
-    @Autowired
-    private PostRepository postRepository;
+    private final PostRepository postRepository;
 
-    @Autowired
-    private GroupRepository groupRepository;
-
-    @Autowired
-    private UserRepository userRepository;
 
     public static String username;
     public static int userId;
 
     private String groupName = "";
 
-    public HomeResource(){
+    public HomeResource(RestService restService, PostRepository postRepository){
+
+        this.restService = restService;
+        this.postRepository = postRepository;
 
     }
 
@@ -76,7 +70,7 @@ public class HomeResource {
     }
 
     @PostMapping("/results")
-    public RedirectView searchResultsPost(@ModelAttribute Search search, Model model){
+    public RedirectView searchResultsPost(@ModelAttribute Search search){
 
         groupName = search.getSearchInput();
 
@@ -93,14 +87,14 @@ public class HomeResource {
         GroupDB[] groups = restService.getGroupsAsObject(groupName);
 
         model.addAttribute("groups",groups);
-
+        model.addAttribute("userID",101);
 
         return "results";
     }
 
 
     @PostMapping("/user")
-    public RedirectView greetingSubmit(@ModelAttribute UserInput userInput, Search search, Model model) {
+    public RedirectView greetingSubmit(@ModelAttribute UserInput userInput,  Model model) {
 
         model.addAttribute("UserInput", userInput);
         //getting a response from groups service

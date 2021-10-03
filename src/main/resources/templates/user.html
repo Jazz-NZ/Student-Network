@@ -48,11 +48,11 @@
 
         <table>
             <tr id = "tablePart" th:each="post : ${posts}">
-                <div >
+
                 <td ><span th:text="${post.getGroupId()}"> GroupID </span></td>
 
                 <td id="postDisplay"><span th:text="${post.getText()}"> Text </span></td>
-                </div>
+
 
             </tr>
         </table>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,17 +8,24 @@
 
         <table>
 
-          <tr id = "tablePart" th:each="group : ${groups}">
-            <div >
+          <tr id = "tablePart" th:each="group: ${groups}">
+
               <td ><span th:text="${group.getGroupName()}"> GroupID </span></td>
 
-              <td id="postDisplay"><span th:text="${group.getGroupDbId()}"> Text </span></td>
-            </div>
+              <td id="postDisplay"><span th:text="${group.getGroupDbId()}"> Text </span>
+                  <input id="joinBtn" type="submit" value="Join" th:attr="onclick='kliknuto(\'' + ${userID}+','+ ${group.getGroupDbId()}+  '\');'">
+
+
+              </td>
+
+
 
           </tr>
         </table>
 
 Rezultati pretrage
 
+        <button th:attr="onclick='kliknuto(\'' + ${userID}+  '\');'"> DUGME </button>
+        <script src="resultsJS.js"></script>
 </body>
 </html>
