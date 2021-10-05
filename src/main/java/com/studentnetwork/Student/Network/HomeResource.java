@@ -25,6 +25,8 @@ public class HomeResource {
     public static String username;
     public static int userId;
 
+    //bolji nacin bi bio da se iz baze poziva id korisnika na osnovu imena
+
     private String groupName = "";
 
     public HomeResource(RestService restService, PostRepository postRepository){
@@ -46,12 +48,11 @@ public class HomeResource {
 
         PostDB[] items = restService.getJsonAsObject(userId);
 
-        System.out.println(items[0].getText());
+
+
 
         model.addAttribute("posts",items);
-        model.addAttribute("name",items[0].getText());
 
-        model.addAttribute("something",items[0].getText());
 
         model.addAttribute("UserInput", new UserInput());
         model.addAttribute("Search", new Search());
@@ -87,7 +88,7 @@ public class HomeResource {
         GroupDB[] groups = restService.getGroupsAsObject(groupName);
 
         model.addAttribute("groups",groups);
-        model.addAttribute("userID",101);
+        model.addAttribute("userID",userId);
 
         return "results";
     }
@@ -101,9 +102,6 @@ public class HomeResource {
         PostDB[] items = restService.getJsonAsObject(userId);
 
         model.addAttribute("posts",items);
-        model.addAttribute("name",items[0].getText());
-
-        model.addAttribute("something",items[0].getText());
 
 
 

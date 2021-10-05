@@ -1,4 +1,6 @@
 
+let loadGroup = -1;
+
 const btn = document.getElementById("joinBtn");
 
 /*btn.addEventListener("click", ()=>{
@@ -23,6 +25,8 @@ const btn = document.getElementById("joinBtn");
 
 //arr contains userID and groupID
 
+//u slucaju da je korisnik clan grupe treba namestiti da na dugmetu vec pise join
+
 function kliknuto(arg) {
     // document.getElementById(id).style.backgroundColor = "#F00";
 
@@ -31,7 +35,7 @@ function kliknuto(arg) {
     let userID = argArray[0];
     let groupID = argArray[1];
 
-    alert(groupID);
+
 
 
     const userAction = async () => {
@@ -48,4 +52,7 @@ function kliknuto(arg) {
 
     }
 
+
+
 }
+
