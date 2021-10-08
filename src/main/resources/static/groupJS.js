@@ -11,6 +11,7 @@ function showPosts(){
     //document.writeln(posts);
     for (let i = 0; i<posts.length; i++){
         document.writeln(posts[i].text);
+       // createListElement(posts[i].text);
     }
 }
 showPosts();
@@ -21,6 +22,7 @@ function handleSubmit(){
      let userID = localStorage.getItem('userID');
 
      sendRequest(userID,groupID,postText);
+
 
      //treba sacuvati ime grupe koja je otvorena
 
@@ -43,3 +45,10 @@ function sendRequest(userID,groupID,postText){
         }
     }
 }
+
+/*let into = $('#result');
+
+function createListElement(text) {
+    let el = $('<li></li>').html(text);
+    el.appendTo(into);
+}*/

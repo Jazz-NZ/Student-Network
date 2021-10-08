@@ -49,7 +49,7 @@
         <table>
             <tr id = "tablePart" th:each="post : ${posts}">
 
-                <td ><span th:attr="onclick='myFunction(\''+${userID} + ${post.getGroupId()}+  '\')'" th:text="${post.getGroupId()}"> GroupID </span></td>
+                <td ><span th:attr="onclick='myFunction(\''+${userID} + ','+${post.getGroupId()}+  '\')'" th:text="${post.getGroupId()}"> GroupID </span></td>
 
                 <td id="postDisplay"><span th:text="${post.getText()}"> Text </span></td>
 

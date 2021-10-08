@@ -76,6 +76,8 @@ function myFunction(userAndGruopID){
     */
 
 
+
+
     let argArray = userAndGruopID.split(',');
 
     let userID = argArray[0];
@@ -83,9 +85,11 @@ function myFunction(userAndGruopID){
 
     // location.replace("./group.html");
     location.href = "group.html";
+
     let request = new XMLHttpRequest();
     request.open("GET", 'http://localhost:8085/'+groupID);
     request.send();
+
     request.onload = ()=>{
         //console.log(request.responseText);
         let posts = JSON.parse(request.responseText);
@@ -94,14 +98,13 @@ function myFunction(userAndGruopID){
             console.log("Json is loaded");
 
 
-
             localStorage.setItem('posts', JSON.stringify(posts));
             localStorage.setItem('groupID',groupID);
             localStorage.setItem('userID',userID);
 
         }
         else{
-            console.log('error on getting json '+request.status);
+            console.log('error on getting json ');
         }
     }
 
