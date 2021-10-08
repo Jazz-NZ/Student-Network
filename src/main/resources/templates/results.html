@@ -10,7 +10,7 @@
 
           <tr id = "tablePart" th:each="group: ${groups}">
 
-              <td ><span th:attr="onclick='myFunction(\'' + ${group.getGroupDbId()}+  '\')'" th:text="${group.getGroupName()}" onmouseover="this.style.color='red';" onmouseout="this.style.color='black';"> GroupName </span></td>
+              <td ><span th:attr="onclick='myFunction(\'' + ${userID} + ','+ ${group.getGroupDbId()}+  '\')'" th:text="${group.getGroupName()}" onmouseover="this.style.color='red';" onmouseout="this.style.color='black';"> GroupName </span></td>
 
               <td id="postDisplay"><span  th:text="${group.getGroupDbId()}" > Text </span>
                   <input id="joinBtn" type="submit" value="Join" th:attr="onclick='kliknuto(\'' + ${userID}+','+ ${group.getGroupDbId()}+  '\');'">

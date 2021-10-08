@@ -48,7 +48,7 @@ public class HomeResource {
 
         PostDB[] items = restService.getJsonAsObject(userId);
 
-
+        model.addAttribute("userID",userId);
 
 
         model.addAttribute("posts",items);
@@ -103,7 +103,7 @@ public class HomeResource {
 
         model.addAttribute("posts",items);
 
-
+        model.addAttribute("userID",userId);
 
 
 

@@ -56,7 +56,7 @@ function kliknuto(arg) {
 
 }
 
-function myFunction(groupID){
+function myFunction(userAndGruopID){
 
 
     // alert(groupID);
@@ -76,6 +76,10 @@ function myFunction(groupID){
     */
 
 
+    let argArray = userAndGruopID.split(',');
+
+    let userID = argArray[0];
+    let groupID = argArray[1];
 
     // location.replace("./group.html");
     location.href = "group.html";
@@ -92,6 +96,9 @@ function myFunction(groupID){
 
 
             localStorage.setItem('posts', JSON.stringify(posts));
+            localStorage.setItem('groupID',groupID);
+            localStorage.setItem('userID',userID);
+
         }
         else{
             console.log('error on getting json '+request.status);
