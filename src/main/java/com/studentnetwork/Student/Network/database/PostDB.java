@@ -3,12 +3,10 @@ package com.studentnetwork.Student.Network.database;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "Post")
+
 public class PostDB {
 
-    @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
+
     private int idPost;
     private int userId;
     private String text;

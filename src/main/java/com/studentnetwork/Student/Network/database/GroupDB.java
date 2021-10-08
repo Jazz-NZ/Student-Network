@@ -2,13 +2,11 @@ package com.studentnetwork.Student.Network.database;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "GroupDB")
+
 public class GroupDB {
 
 
-    @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
+
     private int groupDbId;
     private String groupDbName;
 

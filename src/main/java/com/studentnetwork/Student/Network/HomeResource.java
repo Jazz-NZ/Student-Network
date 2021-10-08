@@ -19,7 +19,7 @@ public class HomeResource {
 
     private final RestService restService;
 
-    private final PostRepository postRepository;
+
 
 
     public static String username;
@@ -29,10 +29,9 @@ public class HomeResource {
 
     private String groupName = "";
 
-    public HomeResource(RestService restService, PostRepository postRepository){
+    public HomeResource(RestService restService){
 
         this.restService = restService;
-        this.postRepository = postRepository;
 
     }
 
@@ -106,15 +105,7 @@ public class HomeResource {
         model.addAttribute("userID",userId);
 
 
-
-        PostDB post = new PostDB();
-
-
-
-        post.setText(userInput.getPostText());
-        post.setUserId(userId);
-        //saving a new post to a database
-        postRepository.save(post);
+        System.out.println("Postavaljenje novo posta sa /user stranice");
 
         return new RedirectView("/user",true);
     }
