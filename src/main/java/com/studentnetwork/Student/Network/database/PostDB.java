@@ -11,6 +11,15 @@ public class PostDB {
     private int userId;
     private String text;
     private int groupId;
+    private String groupName;
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
 
     public int getGroupId() {
         return groupId;

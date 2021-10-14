@@ -84,7 +84,7 @@ function myFunction(userAndGruopID){
     let groupID = argArray[1];
 
     // location.replace("./group.html");
-    location.href = "group.html";
+
 
     let request = new XMLHttpRequest();
     request.open("GET", 'http://localhost:8085/'+groupID);
@@ -94,7 +94,7 @@ function myFunction(userAndGruopID){
         //console.log(request.responseText);
         let posts = JSON.parse(request.responseText);
 
-        if(request.status === 200){
+
             console.log("Json is loaded");
 
 
@@ -102,10 +102,10 @@ function myFunction(userAndGruopID){
             localStorage.setItem('groupID',groupID);
             localStorage.setItem('userID',userID);
 
-        }
-        else{
-            console.log('error on getting json ');
-        }
+            console.log("Local storage updated")
+
+        location.href = "group.html";
+
     }
 
 }

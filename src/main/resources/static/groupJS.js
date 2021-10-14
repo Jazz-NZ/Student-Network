@@ -9,6 +9,10 @@ function showPosts(){
 
     let posts = JSON.parse(localStorage.getItem('posts'));
     //document.writeln(posts);
+
+
+    console.log("Loaded from local storage");
+    console.log("Group id" + localStorage.getItem("groupID"));
     for (let i = 0; i<posts.length; i++){
         document.writeln(posts[i].text);
        // createListElement(posts[i].text);

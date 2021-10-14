@@ -7,12 +7,21 @@
     <meta charset="UTF-8">
     <title>USER</title>
     <link rel="stylesheet" href="user_style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
 </head>
 
+
+
 <body>
+
+
 
 <header>
 
@@ -46,7 +55,19 @@
         <input type="submit" value="Submit">
         </form>
 
-        <table>
+        <div class="list-group" th:each="post : ${posts}" >
+            <a class="list-group-item list-group-item-action active" aria-current="true" th:attr="onclick='myFunction(\''+${userID} + ','+${post.getGroupId()}+  '\')'">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"  th:text="${post.getGroupName()}">Group name</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mb-1" th:text="${post.getText()}">Some placeholder content in a paragraph.</p>
+                <small>And some small print.</small>
+            </a>
+
+        </div>
+
+      <!--  <table>
             <tr id = "tablePart" th:each="post : ${posts}">
 
                 <td ><span th:attr="onclick='myFunction(\''+${userID} + ','+${post.getGroupId()}+  '\')'" th:text="${post.getGroupId()}"> GroupID </span></td>
@@ -55,13 +76,11 @@
 
 
             </tr>
-        </table>
+        </table>-->
     </article>
 </section>
 
-<footer>
-    <p>Footer</p>
-</footer>
+
 <script src="resultsJS.js"></script>
 </body>
 </html>
