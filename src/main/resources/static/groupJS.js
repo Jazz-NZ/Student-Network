@@ -1,5 +1,6 @@
 
-
+let div = document.createElement("div");
+//div.innerHTML += "<h1> NASLOV</h1>"
 
 
 
@@ -14,11 +15,26 @@ function showPosts(){
     console.log("Loaded from local storage");
     console.log("Group id" + localStorage.getItem("groupID"));
     for (let i = 0; i<posts.length; i++){
-        document.writeln(posts[i].text);
+
+
+        div.innerHTML += "<div class=\"list-group\">\n" +
+            "            <a class=\"list-group-item list-group-item-action active\" aria-current=\"true\">\n" +
+            "                <div class=\"d-flex w-100 justify-content-between\">\n" +
+            "                    <h5 class=\"mb-1\">"+posts[i].groupName+"</h5>\n" +
+            "                    <small>3 days ago</small>\n" +
+            "                </div>\n" +
+            "                <p class=\"mb-1\">"+posts[i].text+"</p>\n" +
+            "                <small>And some small print.</small>\n" +
+            "            </a>\n" +
+            "\n" +
+            "        </div>\n"
+      //  document.writeln(posts[i].text);
        // createListElement(posts[i].text);
     }
 }
 showPosts();
+
+document.body.appendChild(div);
 
 function handleSubmit(){
      let postText =  document.getElementById("postArea").value;
