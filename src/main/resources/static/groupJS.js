@@ -17,7 +17,9 @@ function showPosts(){
     for (let i = 0; i<posts.length; i++){
 
 
-        div.innerHTML += "<div class=\"list-group\">\n" +
+        div.innerHTML += "<div class=\"row\">" +
+            "<div class=\"col-12 col-md-8\">"+
+            "<div class=\"list-group\">\n" +
             "            <a class=\"list-group-item list-group-item-action active\" aria-current=\"true\">\n" +
             "                <div class=\"d-flex w-100 justify-content-between\">\n" +
             "                    <h5 class=\"mb-1\">"+posts[i].groupName+"</h5>\n" +
@@ -27,7 +29,9 @@ function showPosts(){
             "                <small>And some small print.</small>\n" +
             "            </a>\n" +
             "\n" +
-            "        </div>\n"
+            "        </div>\n"+
+            "</div>"+
+            "</div>"
       //  document.writeln(posts[i].text);
        // createListElement(posts[i].text);
     }
