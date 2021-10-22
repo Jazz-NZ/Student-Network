@@ -109,3 +109,28 @@ function myFunction(userAndGruopID){
     }
 
 }
+
+function editPost(postID){
+
+
+
+}
+
+function deletePost(userAndPostID){
+
+    let argArray = userAndPostID.split(',');
+
+    let userID = argArray[0];
+    let postID = argArray[1];
+
+    const sendDeleteRequest = async () => {
+        const response = await fetch('http://localhost:8085/delete/'+userID+'/'+postID);
+        const myJson = await response; //extract JSON from the http response
+        // do something with myJson
+        console.log(myJson);
+        location.reload();
+    }
+    sendDeleteRequest();
+
+
+}

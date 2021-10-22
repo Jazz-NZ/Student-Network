@@ -26,7 +26,7 @@
 <header>
 
 
-    <h2>Student Network</h2>
+    <h2 id="appName">Student Network</h2>
 
 
     <form action="#" th:action="@{/results}" th:object="${Search}" method="post">
@@ -50,19 +50,24 @@
     <article>
 
         <form action="#" th:action="@{/user}" th:object="${UserInput}" method="post">
-        <textarea name="Text1" th:field="*{postText}" placeholder="New post" cols="40" rows="5"></textarea>
+        <textarea id="searchArea" th:field="*{postText}" placeholder="New post" cols="40" rows="5"></textarea>
             <br>
         <input type="submit" value="Submit">
         </form>
 
         <div class="list-group" th:each="post : ${posts}" >
-            <a class="list-group-item list-group-item-action active" aria-current="true" th:attr="onclick='myFunction(\''+${userID} + ','+${post.getGroupId()}+  '\')'">
-                <div class="d-flex w-100 justify-content-between">
+            <a class="list-group-item list-group-item-action active" aria-current="true" >
+                <div class="d-flex w-100 justify-content-between" th:attr="onclick='myFunction(\''+${userID} + ','+${post.getGroupId()}+  '\')'">
                     <h5 class="mb-1"  th:text="${post.getGroupName()}">Group name</h5>
                     <small>3 days ago</small>
+
                 </div>
                 <p class="mb-1" th:text="${post.getText()}">Some placeholder content in a paragraph.</p>
-                <small>And some small print.</small>
+                <small>by username</small>
+                <small>
+                    <button id ="editButton" onclick="">EDIT</button>
+                    <button id ="deleteButton" th:attr="onclick='deletePost(\''+${userID} + ','+${post.getIdPost()}+  '\')'">DELETE</button>
+                </small>
             </a>
 
         </div>

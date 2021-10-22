@@ -68,6 +68,7 @@ function sendRequest(userID,groupID,postText){
             console.log('error on getting json '+request.status);
         }
     }
+
 }
 
 /*let into = $('#result');

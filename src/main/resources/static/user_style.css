@@ -12,6 +12,9 @@ header {
 
     text-align: center;
 
+}
+
+#appName{
     color: white;
 }
 
@@ -73,6 +76,10 @@ table {
     border: black;
 }
 
+#searchArea{
+    color: black;
+}
+
 #tablePart{
 
     min-height: 100px;
@@ -82,6 +89,13 @@ td{
     border-bottom: black;
     background: aqua;
 
+}
+#editButton{
+    color: black;
+}
+
+#deleteButton{
+    color: black;
 }
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
